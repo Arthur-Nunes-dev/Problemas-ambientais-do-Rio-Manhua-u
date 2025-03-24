@@ -1,0 +1,66 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: #f0f0f0;
+    position: relative; /* Adicionado para referência de posicionamento */
+}
+
+.conteudo {
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+    text-align: justify;
+    width: 90%;
+    margin: 5vh auto;
+    padding: 20px;
+    background-color: white;
+    color: black;
+}
+
+.conteudo p {
+    padding: 8px 0;
+    line-height: 1.5;
+    font-size: 1rem;
+}
+
+.voltar {
+    position: fixed; /* Fixo na tela */
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+}
+
+.voltar img {
+    padding: 10px;
+    top: 10px;
+    left: 10px;
+    position: fixed; /* Alterado para fixed para ficar acessível ao rolar a página */
+    width: 60px; /* Tamanho menor para mobile */
+    z-index: 100;
+}
+
+.voltar img:hover {
+    transform: scale(1.1);
+}
+
+/* Media Queries para ajustes específicos */
+@media (max-width: 480px) {
+    .voltar {
+        top: 10px;
+        left: 10px;
+    }
+    .voltar img {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (min-width: 769px) {
+    .voltar {
+        left: calc(50% - 35vh); /* Ajuste para desktop baseado no layout original */
+    }
+}

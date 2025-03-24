@@ -1,0 +1,99 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #222;
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alterado para flex-start para melhor visualização em mobile */
+    min-height: 100vh;
+}
+
+.voltar img {
+    padding: 10px;
+    top: 10px;
+    left: 10px;
+    position: fixed; /* Alterado para fixed para ficar acessível ao rolar a página */
+    width: 40px; /* Tamanho menor para mobile */
+    z-index: 100;
+}
+
+.quiz-container {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 95%; /* Largura relativa para se adaptar a diferentes telas */
+    max-width: 100%; /* Remove a limitação de 600px */
+    margin: 40px 0 20px; /* Espaço para o botão voltar */
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.5rem; /* Tamanho menor para mobile */
+}
+
+.pergunta {
+    margin-bottom: 15px;
+}
+
+.pergunta h3 {
+    margin-bottom: 8px;
+    font-size: 1.1rem; /* Tamanho menor para mobile */
+    color: #555;
+}
+
+.opcoes {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.opcoes label {
+    display: block;
+    font-size: 0.9rem; /* Tamanho menor para mobile */
+    color: #333;
+    padding: 5px 0;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 12px; /* Mais espaço para toque */
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 15px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.resultado {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Adicionando media queries para telas maiores */
+@media (min-width: 768px) {
+    .quiz-container {
+        padding: 20px;
+        max-width: 600px;
+    }
+    
+    .voltar img {
+        width: 8vh;
+        bottom: 89vh;
+        position: fixed;
+    }
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa: Pontos Afetados do Rio Manhuaçu</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh; /* Alterado para min-height */
+            background-color: #222;
+            overflow-x: hidden; /* Previne rolagem horizontal */
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            margin: 15px 10px; /* Margens reduzidas */
+            font-size: 1.5rem; /* Tamanho de fonte ajustado */
+            width: 90%; /* Limita a largura do texto */
+            line-height: 1.3; /* Melhora a legibilidade */
+        }
+
+        #map {
+            width: 95%; /* Largura maior para mobile */
+            height: 50vh; /* Altura ajustada */
+            border-radius: 8px; /* Bordas levemente menores */
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px; /* Espaçamento inferior */
+        }
+
+        /* Melhorias para orientação paisagem */
+        @media (orientation: landscape) {
+            #map {
+                height: 65vh; /* Mais altura em paisagem */
+            }
+        }
+
+        /* Ajustes para tablets e telas maiores */
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 2rem;
+                margin: 25px 0;
+            }
+            
+            #map {
+                width: 85%;
+                height: 70vh;
+                border-radius: 12px;
+            }
+            
+            .voltar img {
+                width: 45px;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Pontos Afetados do Rio Manhuaçu</h1>
+    
+    <div id="map"></div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Coordenadas do Rio Manhuaçu (exemplo)
+        const pontosAfetados = [
+            {
+                nome: "Trecho 1: Assoreamento próximo à cidade de Manhuaçu",
+                coordenadas: [-20.2575, -42.0332],
+                descricao: "Área com alto índice de assoreamento devido ao desmatamento das margens."
+            },
+            {
+                nome: "Trecho 2: Poluição por resíduos sólidos em Luisburgo",
+                coordenadas: [-20.4386, -42.1039],
+                descricao: "Descarte inadequado de lixo doméstico e industrial."
+            },
+            {
+                nome: "Trecho 3: Contaminação por agrotóxicos em São João do Manhuaçu",
+                coordenadas: [-20.3931, -42.1533],
+                descricao: "Uso intensivo de agrotóxicos na agricultura local."
+            },
+            {
+                nome: "Trecho 4: Erosão e assoreamento em Reduto",
+                coordenadas: [-20.2403, -41.9839],
+                descricao: "Erosão das margens devido à remoção da vegetação ciliar."
+            }
+        ];
+
+        // Inicializa o mapa
+        const map = L.map('map').setView([-20.2575, -42.0332], 11); // Coordenadas iniciais e zoom
+
+        // Adiciona o tile layer (mapa base)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Adiciona marcadores para cada ponto afetado
+        pontosAfetados.forEach(ponto => {
+            L.marker(ponto.coordenadas)
+                .addTo(map)
+                .bindPopup(`<b>${ponto.nome}</b><br>${ponto.descricao}`);
+        });
+    </script>
+</body>
+</html>

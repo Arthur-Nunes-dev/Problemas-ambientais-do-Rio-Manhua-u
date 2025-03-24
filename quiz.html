@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz: Poluição dos Rios e Assoreamento do Rio Manhuaçu</title>
+    <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+    <a href="index.html" class="voltar" aria-label="Voltar para página inicial">
+        <img src="botao-voltar.png" alt="Ícone de voltar">
+    </a>
+        
+    <div class="quiz-container">
+        <h1>Quiz: Poluição dos Rios e Assoreamento do Rio Manhuaçu</h1>
+        <form id="quiz-form">
+            <!-- As perguntas serão inseridas aqui dinamicamente pelo JavaScript -->
+        </form>
+        <button type="button" onclick="verificarRespostas()" class="btn-enviar">Enviar Respostas</button>
+        <div class="resultado" id="resultado"></div>
+    </div>
+
+    <script>
+        const perguntas = [
+            {
+                pergunta: "1. Qual é a principal causa do assoreamento do Rio Manhuaçu?",
+                opcoes: ["Desmatamento", "Industrialização", "Urbanização", "Agricultura"],
+                resposta: "Desmatamento"
+            },
+            {
+                pergunta: "2. O que é assoreamento?",
+                opcoes: [
+                    "Acúmulo de lixo no rio", 
+                    "Acúmulo de sedimentos no leito do rio", 
+                    "Contaminação por produtos químicos", 
+                    "Aumento do volume de água"
+                ],
+                resposta: "Acúmulo de sedimentos no leito do rio"
+            },
+            {
+                pergunta: "3. Qual é um dos impactos do assoreamento nos rios?",
+                opcoes: [
+                    "Aumento da biodiversidade", 
+                    "Redução da capacidade de armazenamento de água", 
+                    "Melhoria da qualidade da água", 
+                    "Diminuição da erosão"
+                ],
+                resposta: "Redução da capacidade de armazenamento de água"
+            },
+            {
+                pergunta: "4. Qual prática humana contribui para a poluição do Rio Manhuaçu?",
+                opcoes: [
+                    "Reflorestamento", 
+                    "Descarte inadequado de resíduos", 
+                    "Uso de energias renováveis", 
+                    "Agricultura orgânica"
+                ],
+                resposta: "Descarte inadequado de resíduos"
+            },
+            {
+                pergunta: "5. O que pode ser feito para reduzir o assoreamento do Rio Manhuaçu?",
+                opcoes: [
+                    "Aumentar o desmatamento", 
+                    "Construir mais barragens", 
+                    "Implementar práticas de conservação do solo", 
+                    "Expandir áreas urbanas"
+                ],
+                resposta: "Implementar práticas de conservação do solo"
+            },
+            {
+                pergunta: "6. Qual é um dos efeitos da poluição nos ecossistemas aquáticos?",
+                opcoes: [
+                    "Aumento da biodiversidade", 
+                    "Morte de peixes e outros organismos", 
+                    "Melhoria da qualidade da água", 
+                    "Aumento do oxigênio dissolvido"
+                ],
+                resposta: "Morte de peixes e outros organismos"
+            },
+            {
+                pergunta: "7. Qual é a função da mata ciliar?",
+                opcoes: [
+                    "Aumentar a erosão", 
+                    "Proteger as margens dos rios", 
+                    "Aumentar o assoreamento", 
+                    "Reduzir a biodiversidade"
+                ],
+                resposta: "Proteger as margens dos rios"
+            },
+            {
+                pergunta: "8. Qual é o impacto do lixo plástico nos rios?",
+                opcoes: [
+                    "Melhoria da qualidade da água", 
+                    "Aumento da biodiversidade", 
+                    "Contaminação e morte de animais aquáticos", 
+                    "Redução do assoreamento"
+                ],
+                resposta: "Contaminação e morte de animais aquáticos"
+            },
+            {
+                pergunta: "9. Qual é o papel da educação ambiental na preservação dos rios?",
+                opcoes: [
+                    "Promover o descarte inadequado de resíduos", 
+                    "Conscientizar sobre práticas sustentáveis", 
+                    "Aumentar a poluição", 
+                    "Ignorar os problemas ambientais"
+                ],
+                resposta: "Conscientizar sobre práticas sustentáveis"
+            },
+            {
+                pergunta: "10. Quais são as consequências do despejo de esgoto nos rios?",
+                opcoes: [
+                    "Melhoria da qualidade da água", 
+                    "Aumento da oxigenação", 
+                    "Contaminação por bactérias e doenças", 
+                    "Redução do assoreamento"
+                ],
+                resposta: "Contaminação por bactérias e doenças"
+            }
+        ];
+
+        const quizForm = document.getElementById('quiz-form');
+
+        // Função para exibir as perguntas no formulário
+        function exibirPerguntas() {
+            perguntas.forEach((pergunta, index) => {
+                const divPergunta = document.createElement('div');
+                divPergunta.classList.add('pergunta');
+
+                const tituloPergunta = document.createElement('h3');
+                tituloPergunta.textContent = pergunta.pergunta;
+                divPergunta.appendChild(tituloPergunta);
+
+                const divOpcoes = document.createElement('div');
+                divOpcoes.classList.add('opcoes');
+
+                pergunta.opcoes.forEach((opcao, i) => {
+                    const label = document.createElement('label');
+                    const input = document.createElement('input');
+                    input.type = 'radio';
+                    input.name = `pergunta${index}`;
+                    input.value = opcao;
+                    input.id = `pergunta${index}_opcao${i}`;
+
+                    label.htmlFor = `pergunta${index}_opcao${i}`;
+                    label.appendChild(input);
+                    label.appendChild(document.createTextNode(` ${opcao}`));
+                    divOpcoes.appendChild(label);
+                });
+
+                divPergunta.appendChild(divOpcoes);
+                quizForm.appendChild(divPergunta);
+            });
+        }
+
+        // Função para verificar as respostas
+        function verificarRespostas() {
+            let pontuacao = 0;
+            const respostasCorretas = [];
+
+            perguntas.forEach((pergunta, index) => {
+                const respostaSelecionada = document.querySelector(`input[name="pergunta${index}"]:checked`);
+                if (respostaSelecionada && respostaSelecionada.value === pergunta.resposta) {
+                    pontuacao++;
+                }
+                respostasCorretas.push(pergunta.resposta);
+            });
+
+            const resultadoDiv = document.getElementById('resultado');
+            resultadoDiv.innerHTML = `
+                <p>Você acertou ${pontuacao} de ${perguntas.length} perguntas!</p>
+                ${pontuacao < perguntas.length ? 
+                    '<button onclick="mostrarRespostasCorretas()" class="btn-ver-respostas">Ver respostas corretas</button>' : 
+                    ''}
+            `;
+            
+            window.mostrarRespostasCorretas = function() {
+                let respostasHTML = '<div class="respostas-corretas"><h3>Respostas Corretas:</h3><ol>';
+                perguntas.forEach((pergunta, index) => {
+                    respostasHTML += `<li>${pergunta.resposta}</li>`;
+                });
+                respostasHTML += '</ol></div>';
+                resultadoDiv.innerHTML += respostasHTML;
+            }
+        }
+
+        // Exibir as perguntas ao carregar a página
+        window.onload = exibirPerguntas;
+    </script>
+</body>
+</html>
