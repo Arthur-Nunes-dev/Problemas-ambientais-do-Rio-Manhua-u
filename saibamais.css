@@ -24,9 +24,16 @@ body {
 }
 
 .conteudo p {
-    padding: 8px 0;
+    padding-bottom: 4px;
     line-height: 1.5;
     font-size: 1rem;
+}
+
+.conteudo h2 {
+    padding: 16px 0;
+}
+.conteudo h3 {
+    padding: 10px 0;
 }
 
 .voltar {
