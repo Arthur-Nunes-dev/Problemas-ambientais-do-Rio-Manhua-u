@@ -36,6 +36,7 @@ body {
 .link:hover {
     transform: scale(1.1);
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.692);
+    cursor: pointer;
 }
 
 
@@ -101,6 +102,7 @@ body {
     background-color: rgb(197, 8, 8);
     border-radius: 5px;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .problemas button:hover{
