@@ -142,6 +142,7 @@
                     input.name = `pergunta${index}`;
                     input.value = opcao;
                     input.id = `pergunta${index}_opcao${i}`;
+                    input.setAttribute('onclick', 'verificar("'+input.id+'", '+index+', "'+opcao+'")')
 
                     label.htmlFor = `pergunta${index}_opcao${i}`;
                     label.appendChild(input);
@@ -187,6 +188,15 @@
 
         // Exibir as perguntas ao carregar a página
         window.onload = exibirPerguntas;
+
+        function verificar(inputId, perguntaId, valor) {
+            const elemento = document.getElementById(inputId)
+            if (perguntas[perguntaId].resposta == valor) {
+                elemento.setAttribute('style', 'accent-color:green;')
+            } else {
+                elemento.setAttribute('style', 'accent-color:red;')
+            }
+        }
     </script>
 </body>
 </html>
