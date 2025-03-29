@@ -53,9 +53,7 @@ body {
 .voltar img:hover {
     transform: scale(1.1);
 }
-.video{
 
-}
 
 /* Media Queries para ajustes específicos */
 @media (max-width: 480px) {
@@ -63,19 +61,11 @@ body {
         top: 10px;
         left: 10px;
     }
-    .video{
-        width: 250px;
-        height: 100px;
-    }
-    
 }
 
 @media (min-width: 769px) {
     .voltar {
         left: calc(50% - 35vh); /* Ajuste para desktop baseado no layout original */
     }
-    .video{
-        width: 722px;
-        height: 289px;
-    }
+
 }
