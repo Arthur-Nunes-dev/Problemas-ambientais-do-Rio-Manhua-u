@@ -74,25 +74,41 @@
     <script>
         // Coordenadas do Rio Manhuaçu (exemplo)
         const pontosAfetados = [
+            /*
             {
-                nome: "Trecho 1: Assoreamento próximo à cidade de Manhuaçu",
-                coordenadas: [-20.2575, -42.0332],
-                descricao: "Área com alto índice de assoreamento devido ao desmatamento das margens."
-            },
-            {
-                nome: "Trecho 2: Poluição por resíduos sólidos em Luisburgo",
+                nome: "Poluição por resíduos sólidos em Luisburgo",
                 coordenadas: [-20.4386, -42.1039],
                 descricao: "Descarte inadequado de lixo doméstico e industrial."
             },
             {
-                nome: "Trecho 3: Contaminação por agrotóxicos em São João do Manhuaçu",
+                nome: "Contaminação por agrotóxicos - São João do Manhuaçu",
                 coordenadas: [-20.3931, -42.1533],
                 descricao: "Uso intensivo de agrotóxicos na agricultura local."
             },
             {
-                nome: "Trecho 4: Erosão e assoreamento em Reduto",
+                nome: "Erosão e assoreamento - Reduto",
                 coordenadas: [-20.2403, -41.9839],
                 descricao: "Erosão das margens devido à remoção da vegetação ciliar."
+            }, */
+            {
+                nome: "Manhuaçu",
+                coordenadas: [-20.256007744111567, -42.033733084099545],
+                descricao: "Área com alto índice de assoreamento devido ao desmatamento das margens."
+            },
+            {
+                nome: "Rio das Velhas - Ouro Preto",
+                coordenadas: [-18.77979750629212, -44.15810024957149],
+                descricao: "Rio ameaçado pela mineração e poluição (276 km de Manhuaçu)"
+            },
+            {
+                nome: "Nascente ameaçada - Ipatinga",
+                coordenadas: [-19.52310289904787, -42.59272011995862],
+                descricao: "Ameaçada pela urbanização e pela poluição (100 km de Manhuaçu)"
+            },
+            {
+                nome: "Nascente do Rio Santa Maria da Vitória - Jetibá (ES)",
+                coordenadas: [-20.18864937418028, -40.973291800000005],
+                descricao: "Área ameaçada pela agricultura e agropecuária (112 km de Manhuaçu)"
             }
         ];
 
@@ -104,11 +120,25 @@
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
+        L.circle([-20.255007744111567, -42.033733084099545], {
+            color: 'blue',
+            fillColor: "#0aa",
+            fillOpacity: 0.3,
+            radius: 2000
+        }).addTo(map)
+
         // Adiciona marcadores para cada ponto afetado
         pontosAfetados.forEach(ponto => {
-            L.marker(ponto.coordenadas)
+            if (ponto.descricao) {
+                L.marker(ponto.coordenadas)
                 .addTo(map)
                 .bindPopup(`<b>${ponto.nome}</b><br>${ponto.descricao}`);
+            } else {
+                L.marker(ponto.coordenadas)
+                .addTo(map)
+                .bindPopup(`<b>${ponto.nome}</b>`);
+            }
+            
         });
     </script>
 </body>
