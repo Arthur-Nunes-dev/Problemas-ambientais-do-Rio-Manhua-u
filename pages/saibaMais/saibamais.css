@@ -54,6 +54,17 @@ body {
     transform: scale(1.1);
 }
 
+.video {
+    border-radius: 15px;
+    margin-top : 50px;
+    margin-left:25px;
+}
+
+.video iframe {
+    border: none;
+    box-shadow: 9px 10px 1px #47474769;
+}
+
 /* Media Queries para ajustes específicos */
 @media (max-width: 480px) {
     .voltar {

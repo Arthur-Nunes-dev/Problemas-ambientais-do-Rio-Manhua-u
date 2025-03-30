@@ -33,13 +33,6 @@ body {
     font-weight: bold;
 }
 
-.link:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.692);
-    cursor: pointer;
-}
-
-
 .cabecalho {
     text-align: center;
     background-color: rgba(1, 127, 136, 0.952);
@@ -108,11 +101,18 @@ body {
 .problemas button:hover{
     transform: scale(1.1);
     animation: mudarCor 1s infinite alternate cubic-bezier(0.45, 0, 0.55, 1);
+    box-shadow: 12px 13px 1px #47474769;
+}
+
+.link:hover {
+    transform: scale(1.1);
+    box-shadow: 12px 13px 1px #47474769;
+    cursor: pointer;
 }
 
 .problemas:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 10px rgba(252, 251, 251, 0.781);
+    box-shadow: 12px 13px 1px #47474769;
 }
 
 @keyframes mudarCor {
