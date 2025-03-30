@@ -54,10 +54,6 @@ body {
     transform: scale(1.1);
 }
 
-.video{
-    
-}
-
 /* Media Queries para ajustes específicos */
 @media (max-width: 480px) {
     .voltar {
