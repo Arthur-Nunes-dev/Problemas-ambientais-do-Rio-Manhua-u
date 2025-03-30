@@ -65,7 +65,7 @@ body {
 
 @media (min-width: 769px) {
     .voltar {
-        left: calc(50% - 35vh); /* Ajuste para desktop baseado no layout original */
+        left: calc(50% - 35vh); /* Ajuste para desktop baseado no layout original. */
     }
 
 }
