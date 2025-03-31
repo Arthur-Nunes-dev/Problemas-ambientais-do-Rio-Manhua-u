@@ -71,6 +71,10 @@ body {
         top: 10px;
         left: 10px;
     }
+    .video iframe {
+        margin-left: -12px;
+        height: 220px;
+    }
 }
 
 @media (min-width: 769px) {
