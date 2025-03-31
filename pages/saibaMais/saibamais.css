@@ -66,7 +66,7 @@ body {
 }
 
 /* Media Queries para ajustes específicos */
-@media (max-width: 480px) {
+@media (min-width: 600px) {
     .voltar {
         top: 10px;
         left: 10px;
