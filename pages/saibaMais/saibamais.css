@@ -17,7 +17,7 @@ body {
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
     text-align: justify;
     width: 90%;
-    height: 100vmax;
+    height: 100%;
     margin: 5vh auto;
     padding: 20px;
     background-color: white;
