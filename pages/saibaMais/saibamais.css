@@ -17,6 +17,7 @@ body {
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
     text-align: justify;
     width: 90%;
+    height: 100vmax;
     margin: 5vh auto;
     padding: 20px;
     background-color: white;
@@ -27,13 +28,29 @@ body {
     padding-bottom: 4px;
     line-height: 1.5;
     font-size: 1rem;
+    width: 65%;
+    float: left;
+}
+
+.conteudo ul {
+    padding: 10px 0;
+    width: 65%;
+    float: left;
+}
+
+.conteudo ul li {
+    padding: 7px 0;
 }
 
 .conteudo h2 {
     padding: 16px 0;
+    width: 65%;
+    float: left;
 }
 .conteudo h3 {
     padding: 10px 0;
+    width: 65%;
+    float: left;
 }
 
 .voltar {
@@ -63,6 +80,12 @@ body {
 .video iframe {
     border: none;
     box-shadow: 9px 10px 1px #47474769;
+}
+
+.conteudo img{
+    width: 30%;
+    margin-left: 5%;
+    float: right;
 }
 
 /* Media Queries para ajustes específicos */
