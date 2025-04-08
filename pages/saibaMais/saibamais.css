@@ -17,6 +17,7 @@ body {
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
     text-align: justify;
     width: 90%;
+    height: 100vmax;
     margin: 5vh auto;
     padding: 20px;
     background-color: white;
@@ -24,9 +25,22 @@ body {
 }
 
 .conteudo p {
-    padding-bottom: 4px;
+    padding-bottom: 10px;
     line-height: 1.5;
     font-size: 1rem;
+}
+
+.conteudo ul {
+    padding: 10px 0;
+}
+
+.conteudo ul li {
+    padding: 10px 0;
+}
+
+.li-title {
+    font-weight: bold;
+    font-size: large;
 }
 
 .conteudo h2 {
@@ -63,6 +77,11 @@ body {
 .video iframe {
     border: none;
     box-shadow: 9px 10px 1px #47474769;
+}
+
+.conteudo img{
+    margin-left: 5%;
+    float: right;
 }
 
 /* Media Queries para ajustes específicos */
