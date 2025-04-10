@@ -83,7 +83,7 @@ body {
     margin-left: 5%;
     float: right;
 }
-#size-image {
+.size-image {
     width: 25vw;
 }
 
